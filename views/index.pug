@@ -1,0 +1,77 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  //
+    - primary meta tags
+  title weatherio
+  meta(name='title' content='Weather App')
+  meta(name='description' content='weatherio is a weather app made by Tran Duc Hai')
+  //
+    - favicon
+  link(rel='shortcut icon' href='/favicon.svg' type='image/svg+xml')
+  //
+    - google font link
+  link(rel='preconnect' href='https://fonts.googleapis.com')
+  link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+  link(href='https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap' rel='stylesheet')
+  //
+    - custom css link
+  link(rel='stylesheet' href='/css/style.css')
+  //
+    - custom js link
+  script(src='/js/app.js' type='module')
+  script(src='/js/route.js' type='module')
+//
+  - #HEADER
+header.header
+  .container
+    a.logo(href='#')
+      img(src='/images/logo.png' width='364' height='58' alt='logo')
+    .search-view(data-search-view='')
+      .search-wrapper
+        input.search-field(type='search' name='search' placeholder='Search city...' autocomplete='off' data-search-field='')
+        span.m-icon.leading-icon search
+        button.icon-btn.leading-icon.has-state(aria-label='closesearch' data-search-toggler='')
+          span.m-icon arrow_back
+      .search-result(data-search-result='')
+    .header-actions
+      button.icon-btn.has-state(aria-label='open search' data-search-toggler='')
+        span.m-icon.icon search
+      a.btn-primary.has-state(href='#/current-location' data-current-location-btn='')
+        span.m-icon my_location
+        span.span Current Location
+main
+  article.container(data-container='')
+    .content-left
+      //
+        - #CURRENT WEATHER
+      section.section.current-weather(aria-label='current weather' data-current-weather='')
+      //
+        - #FORECAST
+      section.section.forecast(aria-labelledby='forecast-label' data-5-day-forecast='')
+    .content-right
+      //
+        - #HIGHLIGHT
+      section.section.highlights(aria-labelledby='highlights-label' data-highlights='')
+      //
+        - #HOURLY FORECAST
+      section.section.hourly-forecast(aria-label='hourly forecast' data-hourly-forecast='')
+      //
+        - #FOOTER
+      footer.footer
+        p.body-3
+          | Copyright 2023 Tran Duc Hai. All Rights Reserved.
+        p.body-3
+          | Powerd By 
+          a(href='https://openweathermap.org/api' title='Free OpenWeather Api' target='_blank' rel='noopener')
+            img(src='/images/openweather.png' width='150' height='30' loading='lazy' alt='OpenWeather')
+    .loading(data-loading='')
+//
+  - #404 SECTION
+section.error-content(data-error-content='')
+  h2.heading 404
+  p.body-1 Page not found!
+  a.btn-primary(href='#/weather?lat=51.5073219&lon=-0.1276474')
+    span.span Go home
