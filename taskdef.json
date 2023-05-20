@@ -83,5 +83,5 @@
     "FARGATE"
   ],
   "networkMode": "awsvpc",
-  "cpu": "512",
+  "cpu": "512"
 }
